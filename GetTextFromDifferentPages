@@ -1,0 +1,46 @@
+package src.testSelenium;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+
+public class Testing {
+
+	public static void main(String[] args) throws IOException, InterruptedException{
+		// Invoke Browser
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\estefania.rios\\Desktop\\chromedriver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		// size of footers from page
+		driver.get("https://qaclickacademy.com/practice.php");
+		System.out.println(driver.findElements(By.tagName("a")).size());
+		WebElement footerDriver = driver.findElement(By.id("gf-BIG"));
+		System.out.println(footerDriver.findElements(By.tagName("a")).size());
+		// counter of links
+		WebElement columnDriver = footerDriver.findElement(By.xpath("//table/tbody/tr/td[1]/ul")); 
+		System.out.println(columnDriver.findElements(By.tagName("a")).size());
+		//click on each link in the column. Make sure they are opening
+		/*cuenta # de links */ for(int i = 1; i< columnDriver.findElements(By.tagName("a")).size();i++)
+		{
+		String clickAndEnter =Keys.chord(Keys.CONTROL, Keys.ENTER);
+			columnDriver.findElements(By.tagName("a")).get(i).sendKeys(clickAndEnter);
+		Thread.sleep(1000L);
+		}
+		// imprime titulo de cada pagina
+		Set<String> childPages = driver.getWindowHandles();
+		Iterator<String> iterador = childPages.iterator();
+		
+		while(iterador.hasNext())
+		{
+			driver.switchTo().window(iterador.next());
+			System.out.println(driver.getTitle());
+			
+		}
+		driver.quit();
+		}
+}
