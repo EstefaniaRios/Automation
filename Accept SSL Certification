@@ -1,0 +1,14 @@
+public class Testing {
+
+	public static void main(String[] args) throws IOException, InterruptedException{
+		// Invoke Browser
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\estefania.rios\\Desktop\\chromedriver\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.setAcceptInsecureCerts(true);
+		WebDriver driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
+		driver.get("https://expired.badssl.com/");
+		System.out.println(driver.getTitle());
+		driver.close();
+	}
+}
