@@ -1,0 +1,16 @@
+package src.testSelenium;
+
+import org.openqa.selenium.WebDriver;
+
+import com.project.pom.Base;
+
+public class RegisterPage extends Base {
+
+	public RegisterPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	public void patientRegister() {}
+
+	
+}
