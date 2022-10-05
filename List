@@ -1,0 +1,5 @@
+List<WebElement> optionsFromAge = driver.findElements(By.cssSelector("div#coverageRateReportForm_beginAgeRangePeriod_chzn div.chzn-drop ul.chzn-results li"));
+		optionsFromAge.get(2).click();
+		driver.findElement(By.cssSelector("div[id='coverageRateReportForm_endAgeRangePeriod_chzn'] a[class='chzn-single'] div b")).click();
+		List<WebElement> optionsEndAge = driver.findElements(By.cssSelector("div#coverageRateReportForm_endAgeRangePeriod_chzn div.chzn-drop ul.chzn-results li"));
+		optionsEndAge.get(2).click();
