@@ -1,0 +1,10 @@
+//Switch tab
+		Set<String> report = driver.getWindowHandles();
+		Iterator<String> it = report.iterator();
+		while(it.hasNext())
+		{
+		driver.switchTo().window(it.next());
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='ORTHOPOXVIRUS(2)']")));
+		System.out.println(driver.findElement(By.xpath("//td[normalize-space()='ORTHOPOXVIRUS(2)']")).getText());	
+			
+		}
