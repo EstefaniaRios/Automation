@@ -1,0 +1,36 @@
+Decimales
+	private static int countDecimalPlaces(String number)
+	{
+	    
+	    int result = 0;
+	    
+	    try
+	    {
+	        if(number.contains("."))
+	        {
+	            String[] parts = number.split("\\.");
+	            if(parts.length > 1) result = parts[1].length();
+	        }
+	    } catch(Exception e)
+	    {
+	        e.printStackTrace();
+	        result = -1; // Error
+	    }
+	    
+	    return result;
+	}
+	
+Try catch
+
+int lotCounter = 1000;
+		boolean isSuccess = false;
+		while(lotCounter < 1000000 && isSuccess == false) {
+			try {
+			<todo lo que correra mientras busca A1000 repetido>
+				isSuccess = true;
+				
+			}
+		
+			catch(org.openqa.selenium.NoSuchElementException e) {lotCounter++;}
+		}
+
